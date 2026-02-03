@@ -2,18 +2,22 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
 import './styles/globals.css';
+import { initializeTheme } from './store/appStore';
 
 /**
  * Application Entry Point
- * 
+ *
  * LEARNING NOTE: This is where our React application starts.
  * We use React 18's createRoot API for better performance and
  * concurrent rendering features.
- * 
+ *
  * BEST PRACTICE: StrictMode helps identify potential problems
  * in development by running effects twice and highlighting
  * deprecated patterns.
  */
+
+// Initialize theme before render to prevent flash of wrong theme
+initializeTheme();
 
 // Get the root DOM element
 const container = document.getElementById('root');
